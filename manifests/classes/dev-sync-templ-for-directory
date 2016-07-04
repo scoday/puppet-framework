@@ -1,0 +1,46 @@
+class bnlibasync-group01 {
+
+	$asyncdir = "/var/bncloud/async/lib"
+
+	file { "async-base":
+	    backup => false,
+            ensure => directory,
+            replace => true,
+	    purge => true,
+	    path => "${asyncdir}",
+	    checksum => "mtime",
+	    owner => jetty,
+	    group => jetty,
+	    mode => 744,
+	    before => Service["async"],
+            notify => Service["async"],
+	    source => "puppet://$server/bncloud-async/group01/lib",
+	    recurse => true,
+	    ignore => [ ".svn" ],
+	}
+
+	file { 
+	  "/var/bncloud/async/config/bnc-jdbc.properties" :
+	    backup => false,
+	    owner => jetty,
+            group => jetty,
+            mode => 644,
+            replace => true,
+            before => Service["async"],
+            notify => Service["async"],
+            source => "puppet://$server/bncloud-async/group01/config/bnc-jdbc.properties",
+        }
+
+        file {
+	  "/var/bncloud/async/bn-async-start.sh" :
+	    backup => false,
+	    owner => jetty,
+	    group => jetty,
+	    mode  => 744,
+	    replace => true,
+	    before => Service["async"],
+	    notify => Service["async"],
+	    source => "puppet://$server/bncloud-async/group01/scripts/bn-async-start.sh",
+	}
+        
+}
