@@ -4,10 +4,6 @@ This is a puppet platform developed initially as a deployment tool. It is severa
 
 # Puppet-Framework: Automation/Deployment
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/osixia/keepalived.svg)][hub]
-[![Docker Stars](https://img.shields.io/docker/stars/osixia/keepalived.svg)][hub]
-[![Image Size](https://img.shields.io/imagelayers/image-size/osixia/keepalived/latest.svg)](https://imagelayers.io/?images=osixia/keepalived:latest)
-[![Image Layers](https://img.shields.io/imagelayers/layers/osixia/keepalived/latest.svg)](https://imagelayers.io/?images=osixia/keepalived:latest)
 
 [hub]: https://hub.docker.com/r/scoday/puppet-master
 
