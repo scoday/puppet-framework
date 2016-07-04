@@ -1,4 +1,4 @@
-class bnlibasync-group01 {
+class libasync-group01 {
 
 	$asyncdir = "/var/cloud/async/lib"
 
@@ -20,7 +20,7 @@ class bnlibasync-group01 {
 	}
 
 	file { 
-	  "/var/cloud/async/config/bnc-jdbc.properties" :
+	  "/var/cloud/async/config/jdbc.properties" :
 	    backup => false,
 	    owner => jetty,
             group => jetty,
@@ -28,11 +28,11 @@ class bnlibasync-group01 {
             replace => true,
             before => Service["async"],
             notify => Service["async"],
-            source => "puppet://$server/cloud-async/group01/config/bnc-jdbc.properties",
+            source => "puppet://$server/cloud-async/group01/config/jdbc.properties",
         }
 
         file {
-	  "/var/cloud/async/bn-async-start.sh" :
+	  "/var/cloud/async/async-start.sh" :
 	    backup => false,
 	    owner => jetty,
 	    group => jetty,
@@ -40,7 +40,7 @@ class bnlibasync-group01 {
 	    replace => true,
 	    before => Service["async"],
 	    notify => Service["async"],
-	    source => "puppet://$server/cloud-async/group01/scripts/bn-async-start.sh",
+	    source => "puppet://$server/cloud-async/group01/scripts/async-start.sh",
 	}
         
 }
