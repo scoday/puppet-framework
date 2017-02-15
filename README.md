@@ -1,3 +1,5 @@
+# This file is used as a template for other README's. 
+
 ## Puppet-Framework: Automation/Deployment Tools
 
 This is a puppet platform developed initially as a deployment tool. It is several years out of date but could be useful somewhere to someone. Basically these puppet manifests were executed against several hundred nodes. That was either with Hudson/Jenkins or with an old style puppet-run.
@@ -7,10 +9,9 @@ This is a puppet platform developed initially as a deployment tool. It is severa
 
 [hub]: https://hub.docker.com/r/scoday/puppet-master
 
-Latest release: 0.1.1 - Keepalived 1.2.19 - [Changelog](CHANGELOG.md) | [Docker Hub](https://hub.docker.com/r/osixia/keepalived/) 
-
-A docker image to run Keepalived.
-> [keepalived.org](http://keepalived.org/)
+Latest release: 0.1.1 - [Changelog](CHANGELOG.md) |
+A Puppet Framework
+> [puppet](http://puppetlabs.com/)
 
 - [Quick start](#quick-start)
 - [Beginner Guide](#beginner-guide)
@@ -132,7 +133,7 @@ If you need to add your custom TLS certificate, bootstrap config or environment 
 
 Dockerfile example:
 
-    FROM osixia/osixia/keepalived:0.2.1
+    FROM opensuse:latest
     MAINTAINER Your Name <your@name.com>
 
     ADD keepalived.conf /container/service/keepalived/assets/keepalived.conf
@@ -140,49 +141,3 @@ Dockerfile example:
     ADD scripts.sh /container/service/keepalived/assets/notify.sh
 
 
-### Make your own keepalived image
-
-
-Clone this project :
-
-	git clone https://github.com/osixia/docker-keepalived
-	cd docker-keepalived
-
-Adapt Makefile, set your image NAME and VERSION, for example :
-
-	NAME = osixia/keepalived
-	VERSION = 0.2.1
-
-	becomes :
-	NAME = billy-the-king/keepalived
-	VERSION = 0.1.0
-
-Add your custom scripts, environment files, config ...
-
-Build your image :
-
-	make build
-
-Run your image :
-
-	docker run -d billy-the-king/keepalived:0.1.0
-
-### Tests
-
-We use **Bats** (Bash Automated Testing System) to test this image:
-
-> [https://github.com/sstephenson/bats](https://github.com/sstephenson/bats)
-
-Install Bats, and in this project directory run :
-
-	make test
-
-
-### Under the hood: osixia/light-baseimage
-
-This image is based on osixia/light-baseimage.
-More info: https://github.com/osixia/docker-light-baseimage
-
-## Changelog
-
-Please refer to: [CHANGELOG.md](CHANGELOG.md)
